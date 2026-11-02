@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StockUp - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#2e7d50",
+                      "on-primary": "#00391e",
+                      "surface-tint": "#88d7a2",
+                      "secondary": "#a0d2ad",
+                      "on-tertiary-fixed": "#3e0212",
+                      "on-error-container": "#ffdad6",
+                      "on-surface-variant": "#bfc9bf",
+                      "tertiary-fixed": "#ffd9dd",
+                      "secondary-fixed-dim": "#a0d2ad",
+                      "secondary-fixed": "#bcefc8",
+                      "inverse-primary": "#196c41",
+                      "surface": "#101411",
+                      "on-secondary-container": "#93c4a0",
+                      "on-primary-container": "#ceffda",
+                      "on-primary-fixed": "#00210f",
+                      "surface-dim": "#101411",
+                      "on-secondary-fixed-variant": "#224f34",
+                      "primary-fixed": "#a4f4bd",
+                      "surface-bright": "#363a36",
+                      "error": "#ffb4ab",
+                      "surface-container-low": "#181d19",
+                      "surface-variant": "#313632",
+                      "outline-variant": "#3f4941",
+                      "tertiary-container": "#a95562",
+                      "on-background": "#e0e4dd",
+                      "tertiary-fixed-dim": "#ffb2bb",
+                      "on-secondary-fixed": "#00210f",
+                      "primary-fixed-dim": "#88d7a2",
+                      "on-tertiary-fixed-variant": "#782e3b",
+                      "on-error": "#690005",
+                      "surface-container-lowest": "#0b0f0c",
+                      "inverse-on-surface": "#2d312d",
+                      "tertiary": "#ffb2bb",
+                      "surface-container-high": "#272b27",
+                      "on-surface": "#e0e4dd",
+                      "on-primary-fixed-variant": "#00522d",
+                      "error-container": "#93000a",
+                      "inverse-surface": "#e0e4dd",
+                      "secondary-container": "#245236",
+                      "background": "#101411",
+                      "primary": "#88d7a2",
+                      "surface-container-highest": "#313632",
+                      "on-tertiary": "#5b1826",
+                      "surface-container": "#1c211d",
+                      "outline": "#89938a",
+                      "on-tertiary-container": "#fff0f0",
+                      "on-secondary": "#06381f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "gutter": "16px",
+                      "base": "4px",
+                      "xl": "32px",
+                      "xs": "8px",
+                      "lg": "24px",
+                      "sm": "12px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Outfit"
+                      ],
+                      "display-lg": [
+                              "Outfit"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Outfit"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Outfit"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #121212;
+            color: #e0e4dd;
+        }
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/5 shadow-none flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+<span class="font-display-lg text-title-md tracking-widest text-primary dark:text-primary">STOCKUP</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait of a professional chef wearing a clean white apron. The lighting is dramatic and cinematic, reminiscent of a high-end cyberpunk kitchen setting. The overall mood is focused and premium, perfectly matching a dark mode interface with deep blacks and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-kci297uC0qwQvgycowZc6zeMBHOV4EtEOc5XlcH-pLhwsO65o4ValCJ0UbORss-egkJbmroGXse5R5JnV6FGEuAD-r_t2C9iGZFC0cLozl3z_OKhDPHas7UHTTAL9892yJx2UvhM-ECipINO3ATlIx3TgzMaPFEvSRcf_PJLbdBm2yfAu8cd0MmVHDNqipazLtx2hUovmeDJl3huEhxuQq9OjNfvFS6yQFytPxRQYnkO-AM9klpm5HhjTNJHJ5n3b38aoOE9LLk8"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 pt-20 pb-28 px-margin-mobile flex flex-col gap-lg">
+<!-- Profile Section -->
+<section class="glass-panel rounded-xl p-md flex items-center gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30">
+<img alt="Master Chef Avatar" class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait of a professional chef wearing a clean white apron. The lighting is dramatic and cinematic, reminiscent of a high-end cyberpunk kitchen setting. The overall mood is focused and premium, perfectly matching a dark mode interface with deep blacks and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn2yuZigADTPoBGuhJxIzrlipZ2DNdbwZ7eUTLo3e36G_0czXFyaywISMJNSIwxa2pZBJJI2I480VYzmfGdAZI9FKZNpmjBOfdecbzQ5prCA6iWg7GcGeaBbPhmYj59HkqYJS9BqBnzGeeZ2r18j4v1ezfGL7i0O2yBvdN0OjjuZ9KDQXfRoGeuq_OzKlGc0pyDLEGAIBK_RZxpdB4bJU5BFLgf5gKsVkDv3FfbPKIPk6y3FGb4XfMV-srW7tPhvNUOQGJWxTBLPnY"/>
+</div>
+<div class="flex-1">
+<h1 class="font-title-md text-title-md text-on-surface">Master Chef</h1>
+<p class="text-on-surface-variant font-body-sm text-sm">chef@stockup.app</p>
+</div>
+<button class="bg-primary/10 text-primary border border-primary/20 px-4 py-2 rounded-lg font-label-sm text-label-sm hover:bg-primary/20 transition-colors">
+                Edit
+            </button>
+</section>
+<!-- Account Settings -->
+<section class="flex flex-col gap-xs">
+<h2 class="font-label-sm text-label-sm text-primary uppercase tracking-wider pl-xs">Account</h2>
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col divide-y divide-white/5">
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<span class="font-body-md text-body-md text-on-surface">Subscriptions</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="text-sm">Premium</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</button>
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">notifications</span>
+<span class="font-body-md text-body-md text-on-surface">Notifications</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">chevron_right</span>
+</button>
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">lock</span>
+<span class="font-body-md text-body-md text-on-surface">Security</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- App Preferences -->
+<section class="flex flex-col gap-xs">
+<h2 class="font-label-sm text-label-sm text-primary uppercase tracking-wider pl-xs">Preferences</h2>
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col divide-y divide-white/5">
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">palette</span>
+<span class="font-body-md text-body-md text-on-surface">Theme</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="text-sm">Dark</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</button>
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">straighten</span>
+<span class="font-body-md text-body-md text-on-surface">Unit System</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="text-sm">Metric</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</button>
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">language</span>
+<span class="font-body-md text-body-md text-on-surface">Language</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="text-sm">English</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Support & Legal -->
+<section class="flex flex-col gap-xs">
+<h2 class="font-label-sm text-label-sm text-primary uppercase tracking-wider pl-xs">Support</h2>
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col divide-y divide-white/5">
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">help</span>
+<span class="font-body-md text-body-md text-on-surface">Help Center</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">chevron_right</span>
+</button>
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">policy</span>
+<span class="font-body-md text-body-md text-on-surface">Privacy Policy</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">chevron_right</span>
+</button>
+<button class="flex items-center justify-between p-md hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">description</span>
+<span class="font-body-md text-body-md text-on-surface">Terms of Service</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Logout -->
+<button class="w-full glass-panel rounded-xl p-md flex items-center justify-center gap-sm text-error hover:bg-error/10 transition-colors border-error/20 mt-4">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-lg text-body-lg font-semibold">Logout</span>
+</button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-t border-white/5 shadow-none flex justify-around items-center h-20 px-4 pb-safe md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+<span class="font-label-sm text-label-sm mt-1">Inventory</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="font-label-sm text-label-sm mt-1">List</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">restaurant_menu</span>
+<span class="font-label-sm text-label-sm mt-1">Recipes</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1 hover:text-primary transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-sm text-label-sm mt-1">Settings</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Ícone pequeno da notificação (barra de status).
+  Regra do Android: ícone de notificação é SILHUETA. Só o canal alfa importa — a cor
+  é ignorada e o sistema pinta de branco/cinza. Por isso aqui tudo é #FFFFFFFF e as
+  formas são cheias: a antiga android.R.drawable.ic_dialog_info era colorida e
+  aparecia como um borrão cinza.
+  A logo do app é um wordmark horizontal ("StockUp", 370x93) que fica ilegível em
+  24dp, então este símbolo representa a mesma ideia de forma compacta: uma caixa de
+  despensa (a mesma silhueta usada nos cards de produto).
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="#FFFFFFFF">
+
+    <!-- Tampa da caixa -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M3.2,4.6h17.6a1.2,1.2 0 0 1 1.2,1.2v2.2a1.2,1.2 0 0 1 -1.2,1.2h-17.6a1.2,1.2 0 0 1 -1.2,-1.2v-2.2a1.2,1.2 0 0 1 1.2,-1.2z" />
+
+    <!-- Corpo da caixa, com a fenda da gaveta vazada (fillType evenOdd) -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M4.4,10.2h15.2v7.9a2.2,2.2 0 0 1 -2.2,2.2h-10.8a2.2,2.2 0 0 1 -2.2,-2.2z M10.2,13.6h3.6v1.7h-3.6z" />
+</vector>

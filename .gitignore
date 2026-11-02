@@ -1,0 +1,36 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# ─────────────── Segredos: nunca versionar ───────────────
+# O StockUp é offline e não usa chave nenhuma, mas o projeto guarda chaves de
+# ferramentas auxiliares. Ficam fora do versionamento por precaução.
+.env
+.env.*
+*.env
+**/.claude/settings.local.json
+/openroute/
+.venv/
+**/__pycache__/
+
+# Cópias do código (.zip) e do app não pertencem ao repositório.
+/_backups/
+/StockUp.apk
+*.keystore
+*.jks
+
+# Arquivos pessoais/experimentos que não fazem parte do app
+/app.py
+/historico_chat.json

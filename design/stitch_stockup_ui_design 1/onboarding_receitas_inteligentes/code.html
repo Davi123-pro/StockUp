@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StockUp - Smart Recipes</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "on-surface": "#e0e4dd",
+                    "tertiary": "#ffb2bb",
+                    "tertiary-fixed-dim": "#ffb2bb",
+                    "surface-container-lowest": "#0b0f0c",
+                    "surface-container-low": "#181d19",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed": "#3e0212",
+                    "primary": "#88d7a2",
+                    "secondary": "#a0d2ad",
+                    "primary-fixed-dim": "#88d7a2",
+                    "on-primary-fixed": "#00210f",
+                    "primary-container": "#2e7d50",
+                    "surface": "#101411",
+                    "on-surface-variant": "#bfc9bf",
+                    "on-primary-container": "#ceffda",
+                    "secondary-fixed-dim": "#a0d2ad",
+                    "surface-variant": "#313632",
+                    "surface-container-highest": "#313632",
+                    "on-tertiary-container": "#fff0f0",
+                    "secondary-fixed": "#bcefc8",
+                    "on-secondary-container": "#93c4a0",
+                    "surface-container": "#1c211d",
+                    "inverse-on-surface": "#2d312d",
+                    "primary-fixed": "#a4f4bd",
+                    "tertiary-container": "#a95562",
+                    "on-tertiary-fixed-variant": "#782e3b",
+                    "outline": "#89938a",
+                    "outline-variant": "#3f4941",
+                    "on-secondary-fixed": "#00210f",
+                    "background": "#101411",
+                    "tertiary-fixed": "#ffd9dd",
+                    "surface-bright": "#363a36",
+                    "on-primary-fixed-variant": "#00522d",
+                    "inverse-surface": "#e0e4dd",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#245236",
+                    "on-background": "#e0e4dd",
+                    "on-secondary-fixed-variant": "#224f34",
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#88d7a2",
+                    "surface-dim": "#101411",
+                    "surface-container-high": "#272b27",
+                    "inverse-primary": "#196c41",
+                    "on-secondary": "#06381f",
+                    "on-primary": "#00391e",
+                    "on-tertiary": "#5b1826"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "md": "16px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "gutter": "16px",
+                    "xs": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Outfit"
+                    ],
+                    "display-lg": [
+                            "Outfit"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "title-md": [
+                            "Outfit"
+                    ],
+                    "headline-lg": [
+                            "Outfit"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "title-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col relative antialiased selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation (From JSON) - Displayed as top anchor -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-white/5">
+<div class="flex items-center justify-between px-margin-mobile h-16">
+<button class="text-primary dark:text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</button>
+<h1 class="font-display-lg text-display-lg font-bold text-primary tracking-tighter">StockUp</h1>
+<button class="text-on-surface-variant font-label-sm text-label-sm hover:opacity-80 transition-opacity active:scale-95 duration-200">
+                Skip
+            </button>
+</div>
+</header>
+<!-- Main Content Area - Full screen hero layout for onboarding -->
+<main class="flex-grow flex flex-col pt-16 pb-xl relative overflow-hidden">
+<!-- Image Container (High Quality Food Photography) -->
+<div class="relative w-full flex-grow flex items-center justify-center p-md">
+<div class="w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden relative shadow-[0_0_40px_rgba(46,125,80,0.15)] border border-white/5">
+<img alt="Smart Recipes" class="w-full h-full object-cover" data-alt="A sophisticated top-down view of a modern culinary setup. A sleek dark graphite kitchen counter holds an assortment of fresh ingredients: vibrant green herbs, artisanal olive oil, and raw vegetables, meticulously arranged. The lighting is moody and dramatic with glassmorphic depth, highlighting the textures of the food against the OLED black foundation. Accents of vibrant mint green elevate the composition, suggesting effortless control and high-end pantry management for the tech-savvy home cook." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCotNHINSKVK63a8wX5kaMpFzeoTkx7APZUCK5-iLHx6mqgFul9liMDEDEIsnYQS7a0OcO7bAdfNna985lUVtp3ZuQGR-4BzIEv5TChH9rdBc6Hc-QO8oVueD-BDcg2lhIjb7t-Wjz6DC8vFAFYQOMOELI6ZJYURTNOQJJtEqq3cinu9V1hoIY0gNBdQzCOY8uYP62YDPEnEc1OJZHDrTMQVc4ZAAudYJtxzqEXDXBjKpLxjqRc9WYqOjo30V7bP7iOx7gwYgMl-gNW"/>
+<!-- Glassmorphic Overlay for Text Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent flex flex-col justify-end p-lg">
+<!-- Glass Chip Category -->
+<div class="self-start px-sm py-xs bg-surface/20 backdrop-blur-xl border border-white/10 rounded-full mb-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">restaurant_menu</span>
+                            Smart Recipes
+                        </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Typography & Action Area -->
+<div class="px-margin-mobile flex flex-col items-center text-center mt-sm mb-lg z-10 max-w-md mx-auto w-full">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-sm">Receitas com o que Você Tem</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl max-w-[280px]">Sugestões personalizadas baseadas no que já está na sua prateleira.</p>
+<!-- Primary CTA Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-label-sm text-label-sm py-md rounded-lg flex items-center justify-center gap-xs hover:bg-opacity-90 active:scale-95 transition-all shadow-[0_4px_20px_rgba(46,125,80,0.3)]">
+                Começar Agora
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Indicators (From JSON modified for Onboarding Context) -->
+<nav class="fixed bottom-0 w-full z-50 pb-xl bg-transparent">
+<div class="flex justify-center items-center gap-xs w-full">
+<div class="flex items-center justify-center text-outline-variant opacity-40 hover:text-secondary transition-all duration-300 ease-out">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+</div>
+<div class="flex items-center justify-center text-outline-variant opacity-40 hover:text-secondary transition-all duration-300 ease-out">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+</div>
+<!-- Active Dot -->
+<div class="flex items-center justify-center text-primary scale-125 transition-all duration-300 ease-out shadow-[0_0_10px_rgba(136,215,162,0.5)] rounded-full">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+</div>
+</div>
+</nav>
+</body></html>

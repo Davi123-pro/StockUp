@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Foto do produto de exemplo do tour: uma caixa de leite simples.
+  Desenhada à mão para não depender de imagem de terceiros (direito autoral) e
+  para o APK não crescer. É usada só durante o tour e some depois dele.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Fundo -->
+    <path
+        android:fillColor="#F2F7F3"
+        android:pathData="M0,0h96v96h-96z" />
+
+    <!-- Corpo da caixa -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#9BC6A1"
+        android:strokeWidth="2.5"
+        android:pathData="M28,26h40v52a4,4 0 0 1 -4,4h-32a4,4 0 0 1 -4,-4z" />
+
+    <!-- Topo dobrado -->
+    <path
+        android:fillColor="#2E7D50"
+        android:pathData="M28,26l10,-10h30l-6,10z" />
+
+    <!-- Rótulo -->
+    <path
+        android:fillColor="#88D7A2"
+        android:pathData="M35,48h26v16h-26z" />
+
+    <!-- Linhas do rótulo (texto sugerido) -->
+    <path
+        android:fillColor="#2E7D50"
+        android:pathData="M39,52h18v2.4h-18z" />
+    <path
+        android:fillColor="#2E7D50"
+        android:pathData="M39,57.5h12v2.4h-12z" />
+</vector>

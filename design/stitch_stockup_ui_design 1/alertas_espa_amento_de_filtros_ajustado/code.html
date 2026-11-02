@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>StockUp Alerts</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#ceffda",
+                    "primary-container": "#2e7d50",
+                    "on-tertiary": "#5b1826",
+                    "on-tertiary-fixed-variant": "#782e3b",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#a95562",
+                    "tertiary-fixed-dim": "#ffb2bb",
+                    "tertiary": "#ffb2bb",
+                    "surface-variant": "#313632",
+                    "surface-container-low": "#181d19",
+                    "outline-variant": "#3f4941",
+                    "surface-dim": "#101411",
+                    "on-secondary-fixed-variant": "#224f34",
+                    "primary-fixed": "#a4f4bd",
+                    "on-secondary-container": "#93c4a0",
+                    "on-error": "#690005",
+                    "secondary": "#a0d2ad",
+                    "outline": "#89938a",
+                    "on-primary": "#00391e",
+                    "tertiary-fixed": "#ffd9dd",
+                    "on-tertiary-fixed": "#3e0212",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e0e4dd",
+                    "surface-container-lowest": "#0b0f0c",
+                    "on-surface-variant": "#bfc9bf",
+                    "on-tertiary-container": "#fff0f0",
+                    "on-surface": "#e0e4dd",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#00522d",
+                    "surface-tint": "#88d7a2",
+                    "surface-container-highest": "#313632",
+                    "surface-container-high": "#272b27",
+                    "surface-container": "#1c211d",
+                    "secondary-fixed": "#bcefc8",
+                    "secondary-container": "#245236",
+                    "inverse-primary": "#196c41",
+                    "secondary-fixed-dim": "#a0d2ad",
+                    "inverse-on-surface": "#2d312d",
+                    "on-background": "#e0e4dd",
+                    "surface": "#101411",
+                    "on-primary-fixed": "#00210f",
+                    "on-secondary": "#06381f",
+                    "primary-fixed-dim": "#88d7a2",
+                    "surface-bright": "#363a36",
+                    "primary": "#88d7a2",
+                    "on-secondary-fixed": "#00210f",
+                    "background": "#101411"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "margin-mobile": "20px",
+                    "xs": "8px",
+                    "base": "4px",
+                    "md": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "title-md": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #101411;
+            color: #e0e4dd;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .status-strip-warning { background-color: #ffb4ab; }
+        .status-strip-stock { background-color: #88d7a2; }
+        .status-strip-info { background-color: #a0d2ad; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-display-lg text-title-md font-bold text-primary">Alertas</h1>
+</div>
+<button class="text-primary font-semibold text-sm hover:opacity-80 transition-opacity active:scale-95 transition-transform mr-2">Marcar todas como lidas</button><button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-28 px-margin-mobile min-h-screen">
+<!-- Filters/Tabs -->
+<div class="flex mb-lg overflow-x-auto no-scrollbar gap-md"><button class="glass-card px-lg py-sm rounded-full text-primary font-label-sm text-label-sm border-primary/20 bg-primary/10 transition-all hover:bg-primary/20">
+                Tudo
+            </button>
+<button class="glass-card px-lg py-sm rounded-full text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-all">
+                Vencimento
+            </button>
+<button class="glass-card px-lg py-sm rounded-full text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-all">
+                Estoque
+            </button></div>
+<!-- Notification List -->
+<div class="space-y-md">
+<!-- Item 1 (Critical) -->
+<div class="glass-card rounded-xl relative overflow-hidden group transition-all active:scale-[0.98] cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 status-strip-warning"></div>
+<div class="p-md flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-error-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg font-semibold text-on-surface">Leite Integral vence em 2 dias</h3>
+<span class="text-label-sm text-on-surface-variant opacity-70">2 min atrás</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1">Considere usar este item em breve para evitar desperdício.</p>
+<div class="mt-md flex gap-sm">
+<button class="bg-primary px-md py-1.5 rounded-lg text-on-primary font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+                                Ver Receitas
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 (Stock) -->
+<div class="glass-card rounded-xl relative overflow-hidden group transition-all active:scale-[0.98] cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 status-strip-stock"></div>
+<div class="p-md flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg font-semibold text-on-surface">Ovos estão acabando (2 restantes)</h3>
+<span class="text-label-sm text-on-surface-variant opacity-70">1 h atrás</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1">Seu estoque atingiu o nível crítico definido por você.</p>
+<div class="mt-md">
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 (Info) -->
+<div class="glass-card rounded-xl relative overflow-hidden group transition-all active:scale-[0.98] cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 status-strip-info"></div>
+<div class="p-md flex gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-body-lg font-semibold text-on-surface">Lista 'Semanal' atualizada</h3>
+<span class="text-label-sm text-on-surface-variant opacity-70">3 h atrás</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1">Novos itens sugeridos com base no seu consumo recente.</p>
+</div>
+</div>
+</div>
+<!-- Promotion Card / CTA -->
+<div class="mt-xl">
+<div class="relative rounded-2xl overflow-hidden glass-card p-lg h-48 flex flex-col justify-end">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-40" data-alt="A cinematic, high-end close-up photograph of fresh gourmet organic vegetables with droplets of water, captured in a moody dark kitchen setting with dramatic mint green lighting accents. The aesthetic is clean and premium, matching a cyberpunk cyberpunk clean design system with deep blacks and vibrant emerald tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQPSPh7vTUYH7X1exCPzj3POnggJl97w8MsHZku8bwfCjnyB-ygMtLi2P8A89I1VcDDT49YLcJQg8E-B-8l4r6hwK6KhArjgmck20szLD_nXIiLUJiua_Yezh6n17qcsERrNXQf31Pl80xH09ygqn-44euyBex5OGtymVf-6iVnuArwyVwMUquihaySmwByZZsZ7MfUILFwOS3PLC_ZbCOjJAtVPX_gZNkdMlppxvXB48hP6pzsHB9Hsygip5p_YtFm9FiVSFp_OfO')"></div>
+</div>
+<div class="relative z-10">
+<span class="bg-primary-container/40 text-primary-fixed px-sm py-1 rounded text-label-sm font-label-sm mb-sm inline-block">Dica Pro</span>
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile leading-tight text-white">Organize sua dispensa com Inteligência Artificial</h4>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-t border-white/5 flex justify-around items-center h-20 px-sm pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-sm text-label-sm">Pantry</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 text-primary rounded-xl px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined active-icon" data-icon="notifications">notifications</span>
+<span class="font-label-sm text-label-sm">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for notification items
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.add('opacity-50');
+                setTimeout(() => {
+                    this.classList.remove('opacity-50');
+                }, 200);
+            });
+        });
+
+        // Filter toggle logic
+        const filters = document.querySelectorAll('button.rounded-full');
+        filters.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filters.forEach(f => {
+                    f.classList.remove('text-primary', 'border-primary/20', 'bg-primary/10');
+                    f.classList.add('text-on-surface-variant');
+                });
+                this.classList.add('text-primary', 'border-primary/20', 'bg-primary/10');
+                this.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

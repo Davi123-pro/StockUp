@@ -1,0 +1,224 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>StockUp - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ffb4ab",
+                      "tertiary-fixed": "#ffd9dd",
+                      "on-secondary-fixed-variant": "#224f34",
+                      "on-secondary": "#06381f",
+                      "surface": "#101411",
+                      "on-tertiary-fixed-variant": "#782e3b",
+                      "on-error": "#690005",
+                      "on-surface": "#e0e4dd",
+                      "on-background": "#e0e4dd",
+                      "surface-container-lowest": "#0b0f0c",
+                      "primary-fixed-dim": "#88d7a2",
+                      "tertiary-container": "#a95562",
+                      "on-primary-container": "#ceffda",
+                      "secondary-fixed-dim": "#a0d2ad",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#3f4941",
+                      "on-surface-variant": "#bfc9bf",
+                      "primary": "#88d7a2",
+                      "inverse-surface": "#e0e4dd",
+                      "surface-container-highest": "#313632",
+                      "outline": "#89938a",
+                      "secondary-container": "#245236",
+                      "secondary-fixed": "#bcefc8",
+                      "inverse-primary": "#196c41",
+                      "surface-container": "#1c211d",
+                      "primary-fixed": "#a4f4bd",
+                      "background": "#101411",
+                      "surface-tint": "#88d7a2",
+                      "inverse-on-surface": "#2d312d",
+                      "secondary": "#a0d2ad",
+                      "on-secondary-container": "#93c4a0",
+                      "on-tertiary-fixed": "#3e0212",
+                      "error-container": "#93000a",
+                      "on-primary-fixed": "#00210f",
+                      "surface-variant": "#313632",
+                      "surface-container-high": "#272b27",
+                      "surface-bright": "#363a36",
+                      "tertiary-fixed-dim": "#ffb2bb",
+                      "on-tertiary": "#5b1826",
+                      "on-tertiary-container": "#fff0f0",
+                      "surface-container-low": "#181d19",
+                      "on-secondary-fixed": "#00210f",
+                      "primary-container": "#2e7d50",
+                      "surface-dim": "#101411",
+                      "on-primary": "#00391e",
+                      "on-primary-fixed-variant": "#00522d",
+                      "tertiary": "#ffb2bb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "margin-mobile": "20px",
+                      "gutter": "16px",
+                      "xs": "8px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "title-md": ["Outfit"],
+                      "headline-lg-mobile": ["Outfit"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Outfit"],
+                      "display-lg": ["Outfit"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                      "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                      "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                      "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+              }
+            }
+          }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        /* Hide scrollbar for clean horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col pt-16 pb-24" style="background-color: rgb(18, 18, 18); color: rgb(224, 228, 221);">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/5 flex items-center justify-between px-margin-mobile h-16" style="background-color: rgba(18, 18, 18, 0.8);">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary">inventory_2</span>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight" style="font-size: 24px; line-height: 32px;">StockUp</h1>
+</div>
+<button class="hover:bg-surface-variant/50 transition-colors active:scale-95 duration-200 p-xs rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+</header>
+<main class="flex-1 px-margin-mobile pt-lg flex flex-col gap-md">
+<!-- Filter Chips -->
+<div class="flex gap-sm overflow-x-auto no-scrollbar pb-xs">
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-primary-container text-white font-label-sm text-label-sm border border-primary-container shadow-sm flex items-center gap-xs">
+                Todos
+            </button>
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-transparent text-secondary border border-surface-variant font-label-sm text-label-sm hover:bg-surface-variant/30 transition-colors flex items-center gap-xs backdrop-blur-md bg-white/5">
+                Vencendo
+            </button>
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-transparent text-error border border-surface-variant font-label-sm text-label-sm hover:bg-surface-variant/30 transition-colors flex items-center gap-xs backdrop-blur-md bg-white/5">
+                Vencidos
+            </button>
+</div>
+<!-- Product List -->
+<div class="flex flex-col gap-md">
+<!-- Card 1: Vencendo -->
+<div class="relative bg-surface rounded-xl overflow-hidden shadow-sm flex items-center p-md border border-white/5 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[4px] before:bg-secondary" style="background-color: rgb(18, 18, 18);">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex-shrink-0 overflow-hidden relative mr-md">
+<img alt="Milk Carton" class="w-full h-full object-cover" data-alt="A macro shot of a fresh organic milk carton sitting on a dark kitchen counter. The scene is illuminated by moody, dramatic sidelighting that highlights the condensation on the glass. The background features deep OLED blacks and subtle, elegant shadows. The overarching style is a premium, high-contrast, cyberpunk-clean aesthetic with sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC_H77C7-YiVk_d1I2W_vgaG8x1_TUDHlIaGPLfQH2zHOzOFbKn1JlO6nIhVeT57V9tl2TYYNLbarAho_-wbOHN9qktbYrg2TT2VNDCBEuME_qykJNHUnX-CMqP3FzcwCGCaRCyVonWWX9KV1tCTSOZnOKK58ukDJjDMJ5IaWnBs1FgCDw0RNc92-rtJf7HoIHEMKce-0-_pX9CaHib1_0nbj1_yIQ304TKJSM6DHfr8iJPnuFCXHeN0bo0RcX-xn1utJoYZEAdE_K">
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h3 class="font-title-md text-title-md text-on-surface m-0 p-0 leading-tight">Leite Integral</h3>
+<p class="font-body-md text-body-md text-on-surface-variant m-0 p-0">2 caixas</p>
+</div>
+<div class="flex flex-col items-end justify-center ml-sm">
+<div class="flex items-center gap-base bg-secondary-container/20 px-xs py-1 rounded-full border border-secondary/20">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm text-secondary">3 dias</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Vencidos -->
+<div class="relative bg-surface rounded-xl overflow-hidden shadow-sm flex items-center p-md border border-white/5 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[4px] before:bg-error" style="background-color: rgb(18, 18, 18);">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex-shrink-0 overflow-hidden relative mr-md">
+<img alt="Yogurt" class="w-full h-full object-cover grayscale opacity-70" data-alt="A close-up of a small artisanal yogurt jar on a sleek obsidian tabletop. Soft, diffuse light spills across the scene, creating a sophisticated, high-end culinary atmosphere. The environment is dominated by rich, dark charcoal tones, establishing a minimalist and modern visual narrative. The image feels tactile and meticulously composed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoyoavSYbc-51JroiHmKTCSr2BYMZSGnyOrAy4Ri5ypeO1Q_du-phqkTiHXTDPIbIG6WXVuqnGkHeCLJZprd86o1NIDradYIotvD3sFM3dM8NNk35mEVKf5A7Y3PR0P-n1DZCVxiwSDK1EjDGXVQLm2CHHDg7jpq1ZORWZxWxk8ZZampp-l13QFXtnOeow1gT83mB4NkAJMVZO6T5c99GhpXztwEmaCk-KTLLH1IIDx6mpwWV8h6BfFuZfcSvPPJ2-c2MsIE4K4R61">
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h3 class="font-title-md text-title-md text-on-surface m-0 p-0 leading-tight">Iogurte Natural</h3>
+<p class="font-body-md text-body-md text-on-surface-variant m-0 p-0">1 unidade</p>
+</div>
+<div class="flex flex-col items-end justify-center ml-sm">
+<div class="flex items-center gap-base bg-error-container/20 px-xs py-1 rounded-full border border-error/20">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label-sm text-label-sm text-error">Vencido</span>
+</div>
+</div>
+</div>
+<!-- Card 3: OK -->
+<div class="relative bg-surface rounded-xl overflow-hidden shadow-sm flex items-center p-md border border-white/5 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[4px] before:bg-primary" style="background-color: rgb(18, 18, 18);">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex-shrink-0 overflow-hidden relative mr-md">
+<img alt="Rice Bag" class="w-full h-full object-cover" data-alt="A beautifully styled shot of premium long-grain rice spilling slightly from a minimalist matte-black container. Overhead studio lighting sculpts the texture of the rice grains against the deep black background. The aesthetic is clean, precise, and highly controlled, reminiscent of a luxury food magazine spread. A very subtle cool tone permeates the shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSs51p6WvDHwGw5bSTu607PIJ02U08gDrO5xxzae1VWj8o-ZrKTmXNiWrQHD79k9_WqbsqM-HCbkMN5mAlFJ6frZubzmSh67LJq6ONFSnit2vEZVGMPtZX2XeHWOzYDbbOkQKgTg4Wt3RSlnVHDDhUvcQ3QFheNgkqdEYICzqzi60eX6ki-7bGVLMGEjlpjn7LlnE_mSkscNiFWUNrSwP5b2_McG-mtkARrr9LQurp3E9ozKhb3fmxxGJ2cXqrzX1ezAWcyk9KPfkt">
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<h3 class="font-title-md text-title-md text-on-surface m-0 p-0 leading-tight">Arroz Agulhinha</h3>
+<p class="font-body-md text-body-md text-on-surface-variant m-0 p-0">5 kg</p>
+</div>
+<div class="flex flex-col items-end justify-center ml-sm">
+<div class="flex items-center gap-base bg-primary-container/10 px-xs py-1 rounded-full border border-primary/20">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-label-sm text-label-sm text-primary">60+ dias</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-margin-mobile w-14 h-14 bg-primary rounded-full shadow-lg flex items-center justify-center hover:bg-primary-fixed transition-colors active:scale-95 duration-200 z-40 border border-primary-fixed-dim/50">
+<span class="material-symbols-outlined text-[#000000]" style="font-variation-settings: 'FILL' 1; font-size: 28px;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/5 shadow-lg left-0 flex justify-around items-center px-2 pb-6 pt-3 md:hidden" style="background-color: rgba(18, 18, 18, 0.8);">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">kitchen</span>
+<span class="font-label-sm text-label-sm mt-1">Pantry</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-sm text-label-sm mt-1">Shopping</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Recipes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm mt-1">Settings</span>
+</a>
+</nav>
+
+
+</body></html>

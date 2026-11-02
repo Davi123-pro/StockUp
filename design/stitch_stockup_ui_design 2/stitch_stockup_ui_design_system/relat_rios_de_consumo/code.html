@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StockUp - Relatórios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#e0e4dd",
+                      "secondary-fixed": "#bcefc8",
+                      "tertiary-fixed-dim": "#ffb2bb",
+                      "on-tertiary-container": "#fff0f0",
+                      "on-primary-container": "#ceffda",
+                      "outline": "#89938a",
+                      "on-primary": "#00391e",
+                      "surface-container": "#1c211d",
+                      "on-secondary-fixed-variant": "#224f34",
+                      "on-secondary-container": "#93c4a0",
+                      "surface-variant": "#313632",
+                      "secondary-container": "#245236",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "surface-dim": "#101411",
+                      "surface-container-low": "#181d19",
+                      "error-container": "#93000a",
+                      "primary-container": "#2e7d50",
+                      "on-tertiary": "#5b1826",
+                      "on-secondary": "#06381f",
+                      "tertiary": "#ffb2bb",
+                      "surface-container-highest": "#313632",
+                      "surface-container-high": "#272b27",
+                      "outline-variant": "#3f4941",
+                      "on-surface-variant": "#bfc9bf",
+                      "surface-bright": "#363a36",
+                      "surface": "#101411",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#a95562",
+                      "primary-fixed-dim": "#88d7a2",
+                      "on-secondary-fixed": "#00210f",
+                      "tertiary-fixed": "#ffd9dd",
+                      "on-tertiary-fixed": "#3e0212",
+                      "primary-fixed": "#a4f4bd",
+                      "on-tertiary-fixed-variant": "#782e3b",
+                      "secondary-fixed-dim": "#a0d2ad",
+                      "inverse-primary": "#196c41",
+                      "background": "#101411",
+                      "on-primary-fixed-variant": "#00522d",
+                      "inverse-on-surface": "#2d312d",
+                      "inverse-surface": "#e0e4dd",
+                      "on-background": "#e0e4dd",
+                      "on-primary-fixed": "#00210f",
+                      "surface-container-lowest": "#0b0f0c",
+                      "surface-tint": "#88d7a2",
+                      "primary": "#88d7a2",
+                      "secondary": "#a0d2ad"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "margin-mobile": "20px",
+                      "sm": "12px",
+                      "md": "16px",
+                      "xs": "8px",
+                      "xl": "32px",
+                      "gutter": "16px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Outfit"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Outfit"
+                      ],
+                      "headline-lg": [
+                              "Outfit"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Outfit"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal chip list */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        .glass-panel {
+            background: rgba(24, 29, 25, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(46, 125, 80, 0.3); /* Thin neon green border */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .neon-glow:focus, .neon-glow:focus-within {
+            box-shadow: 0 0 15px 0 rgba(46, 125, 80, 0.5);
+            border-color: #2e7d50;
+        }
+        
+        /* Futuristic Chart styles */
+        .chart-bar-glow {
+            box-shadow: 0 0 12px rgba(136, 215, 162, 0.6);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-surface-container-low via-background to-background text-on-background font-body-md min-h-screen pb-24 antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface/60 backdrop-blur-2xl dark:bg-surface/60 text-primary dark:text-primary font-headline-lg-mobile text-headline-lg-mobile docked full-width top-0 sticky z-50 border-b border-primary/20 shadow-[0_4px_30px_rgba(0,0,0,0.3)] flex items-center justify-between px-margin-mobile h-16 w-full md:hidden">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-variant/50 transition-colors text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">inventory_2</span>
+</button>
+<h1 class="font-display-lg text-primary dark:text-primary tracking-tight text-[22px] leading-tight flex-1 text-center font-bold drop-shadow-[0_0_8px_rgba(136,215,162,0.4)]">StockUp</h1>
+<button class="p-2 -mr-2 rounded-full hover:bg-surface-variant/50 transition-colors text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</button>
+</header>
+<!-- Desktop TopAppBar (Hidden on Mobile) -->
+<header class="hidden md:flex bg-surface/60 backdrop-blur-2xl dark:bg-surface/60 text-primary dark:text-primary font-headline-lg text-headline-lg docked full-width top-0 sticky z-50 border-b border-primary/20 shadow-[0_4px_30px_rgba(0,0,0,0.3)] items-center justify-between px-xl h-20 w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[32px]">inventory_2</span>
+<h1 class="font-display-lg text-primary dark:text-primary tracking-tight font-extrabold drop-shadow-[0_0_8px_rgba(136,215,162,0.4)]">StockUp</h1>
+</div>
+<nav class="flex gap-lg">
+<a class="font-title-md text-title-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Despensa</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Compras</a>
+<a class="font-title-md text-title-md text-primary font-bold border-b-2 border-primary pb-1 shadow-[0_4px_10px_rgba(136,215,162,0.3)]" href="#">Relatórios</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Configurações</a>
+</nav>
+<button class="p-2 rounded-full hover:bg-surface-variant/50 transition-colors text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[32px]">account_circle</span>
+</button>
+</header>
+<main class="w-full max-w-5xl mx-auto pt-md md:pt-xl">
+<!-- Header -->
+<section class="px-margin-mobile md:px-0 mb-lg">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface drop-shadow-md">Relatórios de Consumo</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Visão geral do mês atual.</p>
+</div>
+<button class="glass-panel p-3 rounded-full flex items-center justify-center hover:bg-surface-variant/80 transition-colors active:scale-95 text-primary neon-glow" tabindex="0">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+</button>
+</div>
+</section>
+<!-- Summary Cards -->
+<section class="px-margin-mobile md:px-0 grid grid-cols-2 gap-md mb-xl">
+<div class="glass-panel p-md rounded-xl relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-colors"></div>
+<div class="flex items-center gap-sm mb-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px]">trending_up</span>
+<span class="font-title-md text-sm">Consumido</span>
+</div>
+<div class="font-display-lg text-3xl font-bold text-on-surface drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">R$ 845,90</div>
+<div class="font-label-sm text-label-sm text-primary mt-1">+12% vs. último mês</div>
+</div>
+<div class="glass-panel p-md rounded-xl relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary/10 rounded-full blur-xl group-hover:bg-tertiary/20 transition-colors"></div>
+<div class="flex items-center gap-sm mb-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[20px]">trending_down</span>
+<span class="font-title-md text-sm">Desperdiçado</span>
+</div>
+<div class="font-display-lg text-3xl font-bold text-on-surface drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">R$ 32,50</div>
+<div class="font-label-sm text-label-sm text-tertiary mt-1">-5% vs. último mês</div>
+</div>
+</section>
+<!-- Trends Chart -->
+<section class="px-margin-mobile md:px-0 mb-xl">
+<div class="glass-panel p-md rounded-xl">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Tendência de Consumo</h3>
+<select class="bg-surface/50 border border-primary/30 text-on-surface font-label-sm rounded-md px-2 py-1 focus:ring-primary/50 focus:border-primary outline-none">
+<option>Últimos 6 meses</option>
+<option>Este ano</option>
+</select>
+</div>
+<!-- Futuristic Bar Chart Simulation -->
+<div class="h-48 flex items-end justify-between gap-2 mt-4 px-2 relative">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+</div>
+<!-- Bars -->
+<div class="w-full flex flex-col items-center gap-2 z-10">
+<div class="w-full h-[40%] bg-primary/80 rounded-t-sm chart-bar-glow relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-surface p-1 rounded text-[10px] text-white border border-primary/50 transition-opacity">R$ 520</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Jul</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 z-10">
+<div class="w-full h-[65%] bg-primary/80 rounded-t-sm chart-bar-glow relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-surface p-1 rounded text-[10px] text-white border border-primary/50 transition-opacity">R$ 710</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Ago</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 z-10">
+<div class="w-full h-[55%] bg-primary/80 rounded-t-sm chart-bar-glow relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-surface p-1 rounded text-[10px] text-white border border-primary/50 transition-opacity">R$ 650</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Set</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 z-10">
+<div class="w-full h-[80%] bg-primary/80 rounded-t-sm chart-bar-glow relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-surface p-1 rounded text-[10px] text-white border border-primary/50 transition-opacity">R$ 820</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Out</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 z-10">
+<div class="w-full h-[70%] bg-primary/80 rounded-t-sm chart-bar-glow relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-surface p-1 rounded text-[10px] text-white border border-primary/50 transition-opacity">R$ 750</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Nov</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 z-10">
+<div class="w-full h-[95%] bg-primary shadow-[0_0_15px_rgba(136,215,162,0.8)] rounded-t-sm relative group">
+<div class="opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-surface p-1 rounded text-[10px] text-white border border-primary/80">R$ 845</div>
+</div>
+<span class="text-[10px] text-primary font-bold">Dez</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Categories List -->
+<section class="px-margin-mobile md:px-0">
+<h3 class="font-title-md text-title-md text-on-surface font-bold mb-md">Categorias Mais Consumidas</h3>
+<div class="flex flex-col gap-sm">
+<!-- Category Item -->
+<div class="glass-panel p-3 rounded-lg flex items-center justify-between hover:bg-surface-variant/40 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">icecream</span>
+</div>
+<div>
+<div class="font-title-md text-[16px] text-on-surface font-medium">Laticínios</div>
+<div class="font-body-md text-[12px] text-on-surface-variant">24 itens consumidos</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-title-md text-[16px] text-on-surface font-bold">R$ 215,00</div>
+<div class="font-body-md text-[12px] text-primary">25% do total</div>
+</div>
+</div>
+<!-- Category Item -->
+<div class="glass-panel p-3 rounded-lg flex items-center justify-between hover:bg-surface-variant/40 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 border border-secondary/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div>
+<div class="font-title-md text-[16px] text-on-surface font-medium">Bebidas</div>
+<div class="font-body-md text-[12px] text-on-surface-variant">18 itens consumidos</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-title-md text-[16px] text-on-surface font-bold">R$ 180,50</div>
+<div class="font-body-md text-[12px] text-secondary">21% do total</div>
+</div>
+</div>
+<!-- Category Item -->
+<div class="glass-panel p-3 rounded-lg flex items-center justify-between hover:bg-surface-variant/40 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant/50 border border-white/10 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">nutrition</span>
+</div>
+<div>
+<div class="font-title-md text-[16px] text-on-surface font-medium">Proteínas</div>
+<div class="font-body-md text-[12px] text-on-surface-variant">12 itens consumidos</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-title-md text-[16px] text-on-surface font-bold">R$ 150,00</div>
+<div class="font-body-md text-[12px] text-on-surface-variant">18% do total</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface/80 backdrop-blur-2xl dark:bg-surface/80 text-primary dark:text-primary font-label-sm text-label-sm fixed bottom-0 w-full z-50 border-t border-primary/20 shadow-[0_-4px_30px_rgba(0,0,0,0.3)] flex justify-around items-center px-margin-mobile py-xs w-full md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">shelves</span>
+<span>Despensa</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">shopping_cart</span>
+<span>Compras</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/20 border border-primary/50 text-primary rounded-full px-4 py-1 shadow-[0_0_15px_rgba(46,125,80,0.4)] hover:bg-primary-container/40 transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+<span>Relatórios</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">settings</span>
+<span>Configurações</span>
+</a>
+</nav>
+</body></html>

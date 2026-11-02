@@ -1,0 +1,201 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>StockUp - Product Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffd9dd",
+                    "on-secondary-fixed-variant": "#224f34",
+                    "on-secondary": "#06381f",
+                    "surface": "#101411",
+                    "on-tertiary-fixed-variant": "#782e3b",
+                    "on-error": "#690005",
+                    "on-surface": "#e0e4dd",
+                    "on-background": "#e0e4dd",
+                    "surface-container-lowest": "#0b0f0c",
+                    "primary-fixed-dim": "#88d7a2",
+                    "tertiary-container": "#a95562",
+                    "on-primary-container": "#ceffda",
+                    "secondary-fixed-dim": "#a0d2ad",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#3f4941",
+                    "on-surface-variant": "#bfc9bf",
+                    "primary": "#88d7a2",
+                    "inverse-surface": "#e0e4dd",
+                    "surface-container-highest": "#313632",
+                    "outline": "#89938a",
+                    "secondary-container": "#245236",
+                    "secondary-fixed": "#bcefc8",
+                    "inverse-primary": "#196c41",
+                    "surface-container": "#1c211d",
+                    "primary-fixed": "#a4f4bd",
+                    "background": "#101411",
+                    "surface-tint": "#88d7a2",
+                    "inverse-on-surface": "#2d312d",
+                    "secondary": "#a0d2ad",
+                    "on-secondary-container": "#93c4a0",
+                    "on-tertiary-fixed": "#3e0212",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#00210f",
+                    "surface-variant": "#313632",
+                    "surface-container-high": "#272b27",
+                    "surface-bright": "#363a36",
+                    "tertiary-fixed-dim": "#ffb2bb",
+                    "on-tertiary": "#5b1826",
+                    "on-tertiary-container": "#fff0f0",
+                    "surface-container-low": "#181d19",
+                    "on-secondary-fixed": "#00210f",
+                    "primary-container": "#2e7d50",
+                    "surface-dim": "#101411",
+                    "on-primary": "#00391e",
+                    "on-primary-fixed-variant": "#00522d",
+                    "tertiary": "#ffb2bb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "margin-mobile": "20px",
+                    "gutter": "16px",
+                    "xs": "8px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "title-md": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Outfit"],
+                    "display-lg": ["Outfit"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- Top Navigation (Contextual departure, hiding global nav shell, showing a back button) -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-margin-mobile h-16 glass-panel border-b-0">
+<button class="text-on-surface hover:bg-surface-variant/50 p-2 rounded-full transition-colors active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="font-title-md text-title-md text-primary font-bold tracking-tight">StockUp</div>
+<div class="w-10"></div> <!-- Placeholder for balance -->
+</header>
+<main class="flex-grow pt-0 pb-24 flex flex-col">
+<!-- Hero Section -->
+<div class="relative w-full h-[250px] bg-surface-container-highest">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A high-quality, close-up photograph of a jar of organic tomato sauce resting on a dark, sleek kitchen counter. The lighting is dramatic and moody, emphasizing the rich red color of the sauce against the deep OLED black background. The style is premium and editorial, fitting a high-end pantry management app with a cyberpunk clean aesthetic. Crisp focus on the jar label, with a subtle glassmorphic blur in the distant background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJWTyF7SbN9modANS3-iD_z8FHtS5HnUzYswr5EDTfgSxY53RdDVIHvM5nhBromknm9GONPgEE7MBFd9zcsWdPl_QhG8EHlF0BtK5vR_qjtb9ZCm7ac_Esa_Kn3lQIlQfUY9zKZJMOFeBwN1HrkClde7cPsaVTnjG9AIfQpTWUdMmfFSan73t4ucwl8dpDDZPKVNBm_yQVh5dkU1SAuXf3-WsUYiL5VcOT5bVRO2T1d0TN5TGazlBypxyrrw0mSttrZOfPRquINI9v">
+<!-- Gradient Fade into Background -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<!-- Glass Chip Category -->
+<div class="absolute top-20 left-margin-mobile glass-panel px-sm py-1 rounded-full font-label-sm text-label-sm text-on-surface shadow-[0_0_10px_rgba(255,255,255,0.05)]">
+                Despensa
+            </div>
+</div>
+<!-- Content Area -->
+<div class="px-margin-mobile -mt-xl relative z-10 flex flex-col gap-xl">
+<!-- Header Info -->
+<div class="flex flex-col gap-xs">
+<div class="flex items-center justify-between">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface m-0 leading-tight">Molho de Tomate Orgânico</h1>
+</div>
+<div class="flex items-center gap-xs">
+<span class="bg-[#FFB74D]/10 text-[#FFB74D] px-sm py-1 rounded-full font-label-sm text-label-sm border border-[#FFB74D]/30 inline-flex items-center gap-1 shadow-[0_0_10px_rgba(255,183,77,0.15)]">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning">warning</span>
+                        Vence em 3 dias
+                    </span>
+<span class="text-on-surface-variant font-body-md text-body-md">500g</span>
+</div>
+</div>
+<!-- Info Card -->
+<div class="glass-panel rounded-xl p-md relative overflow-hidden">
+<!-- Semantic Status Strip -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-[#FFB74D] shadow-[0_0_10px_#FFB74D]"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">Data de Vencimento</span>
+<span class="text-on-surface font-title-md text-title-md">20/12/2026</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[32px]" data-icon="calendar_month">calendar_month</span>
+</div>
+</div>
+<!-- Stock Counter -->
+<div class="flex flex-col gap-md">
+<h2 class="font-title-md text-title-md text-on-surface">No estoque</h2>
+<div class="flex items-center justify-center gap-xl py-lg glass-panel rounded-xl">
+<button class="glass-panel w-12 h-12 rounded-full flex items-center justify-center text-on-surface hover:bg-white/10 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<div class="flex flex-col items-center justify-center w-20">
+<span class="font-display-lg text-display-lg text-primary leading-none text-transparent bg-clip-text bg-gradient-to-b from-primary to-[#2E7D50]">2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">unidades</span>
+</div>
+<button class="bg-primary-container text-on-primary-container w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary-container/90 active:scale-95 transition-all shadow-[0_0_15px_rgba(46,125,80,0.6)] border border-[#2E7D50]/50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Progress Bar indicator of stock health -->
+<div class="w-full bg-surface-container-highest rounded-full h-1 mt-2 overflow-hidden border border-white/5">
+<div class="bg-primary h-1 rounded-full shadow-[0_0_8px_rgba(136,215,162,0.8)]" style="width: 40%"></div>
+</div>
+</div>
+<!-- Details / Notes section -->
+<div class="flex flex-col gap-xs mt-2">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Anotações</h3>
+<p class="text-body-md font-body-md text-on-surface glass-panel p-md rounded-lg">
+                    Comprado no mercado local. Ideal para massas e pizzas. Manter refrigerado após aberto.
+                </p>
+</div>
+</div>
+</main>
+<!-- Footer Action -->
+<footer class="fixed bottom-0 w-full bg-background/80 backdrop-blur-xl border-t border-white/5 p-margin-mobile z-40 pb-8">
+<button class="w-full flex items-center justify-center gap-xs py-md rounded-lg border border-[#FF6B6B]/30 text-[#FF6B6B] bg-[#FF6B6B]/5 hover:bg-[#FF6B6B]/15 hover:shadow-[0_0_15px_rgba(255,107,107,0.2)] active:scale-95 transition-all font-body-lg text-body-lg font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+            Excluir Produto
+        </button>
+</footer>
+</body></html>
